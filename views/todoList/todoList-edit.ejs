@@ -1,0 +1,14 @@
+<% include ../partials/boilerplate %>
+	<% include ../partials/nav %>
+	<div class='container'>
+		<div class='centerContainer'>
+			<form method='POST' action='/todolist/<%= data.id %>?_method=PUT'>
+			  <input name='description' type='text' value='<%= data.description %>' />
+			  <textarea name='detail' id='detail' ><%= data.detail %></textarea>
+			  <input name='todoDate' type='date' value='<%= data.tododatestr %>' />
+			  <input name='todoTime' type='time' value='<%= data.todotimestr %>' />
+			  <input class='.myButton' type='submit' value='Edit' />
+			</form>
+		</div>
+	</div>
+<% include ../partials/end %>
