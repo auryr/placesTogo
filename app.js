@@ -29,7 +29,7 @@ app.use(passport.session());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-const port = process.env.PORT || 3003 ;
+const port = process.env.PORT || 3001 ;
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });

@@ -1,8 +1,13 @@
 <% include ./partials/boilerplate %>
-	<% include ./partials/nav %>
+<% include ./partials/nav %>
 		<div class="container">
-		  <h1><%= message %></h1>
-		  <h1><%= subTitle %></h1>
+	        <form  action='/getPlacesToGo' id="request">
+				<input name='country' type='text' placeholder='Country'/>
+				<input name='city' type='text' placeholder='City'/>
+	          <button id="search" type="submit">...</button>
+	        </form>
 		</div>
+    <script src="../src/jquery.js"></script>
+    <script src="../src/main.js"></script>
 	<% include ./partials/pageFooter %>
 <% include ./partials/end %>

@@ -4,19 +4,18 @@
 	<title></title>
 </head>
 <body>
-
-
-<% for (let i=0; i < placesToGo.length;i++) { %>
-	<h3><%= placesToGo[i].formatted_address %></h3>
-	<p><%= placesToGo[i].name %></p>
-	<div>
-		<img src="<%= imagesUrl[i] %>"></img>
+    <script src="/src/jquery.js"></script>
+	<script src="/src/main.js"></script>
+	<% include ../partials/nav %>
+	<div class='container'>
+	    <div class='centerContainer'>
+			<% for (let i=0; i < placesToGo.length;i++) { %>
+				<h2><%= placesToGo[i].name %></h3>
+				<h3><%= placesToGo[i].formatted_address %></h3>
+				<div>
+					<img src="<%= imagesUrl[i] %>"></img>
+				</div>
+			<% } %>
+		</div>
 	</div>
-<% } %>
 <% include ../partials/end %>
-
-
-
-
-</body>
-</html>
