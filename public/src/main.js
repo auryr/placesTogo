@@ -1,16 +1,24 @@
 // console.log('main.js is connected');
 
-
-// window.onload = function(){
-//   document.getElementById("search").addEventListener('click',function(){
-//       process.env.place= document.getElementById("place").value;
-//       console.log("hey",localStorage.getItem('searchCity'));
-//   })
-//     // $("#search").on("click", function(){
-//     //   alert("hey");
-//     //   localStorage.setItem('searchCity', $("#place").val());
-//     //   console.log("hey",localStorage.getItem('searchCity'));
-//     // })
-
+// function completeTodo(e) {
+//   const todoId = e.target.dataset.id;
+//   fetch(`/todos/${todoId}/complete`, {
+//     method: 'PUT',
+//     credentials: 'include',
+//   }).then(res => res.json())
+//     .then(jsonRes => {
+//       e.target.innerHTML = 'Done!';
+//       e.target.classList = 'done';
+//       e.target.removeEventListener('click', handler);
+//       console.log(jsonRes);
+//     })
 // }
 
+// function getAllTodos() {
+//   const todos = document.querySelectorAll('span.not-done');
+//   todos.forEach(todo => {
+//     todo.addEventListener('click', handler = (e) => completeTodo(e));
+//   })
+// }
+
+// document.addEventListener('DOMContentLoaded', getAllTodos);

@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Visit Us</title>
 </head>
 <body>
     <script src="/src/jquery.js"></script>
 	<script src="/src/main.js"></script>
 	<% include ../partials/nav %>
 	<div class='container'>
-	    <div class='centerContainer'>
+	    <div class='centerContainer' style="background-color:blue">
 			<% for (let i=0; i < placesToGo.length;i++) { %>
-				<h2><%= placesToGo[i].name %></h3>
-				<h3><%= placesToGo[i].formatted_address %></h3>
-				<div>
-					<img src="<%= imagesUrl[i] %>"></img>
-				</div>
+				<form method="POST" action="/">
+					<div class="placeHolder">
+						<h2 id ="description"><%= placesToGo[i].name %></h2>
+						<h3 id = "detail"><%= placesToGo[i].formatted_address %></h3>
+						<input id="add" type="checkbox">
+						<label for="add">Add to my list</label>
+						<img src="<%= imagesUrl[i] %>"></img>
+					</div>
+					<input type='submit' value='Add Place'/>
+				</form>
 			<% } %>
 		</div>
 	</div>

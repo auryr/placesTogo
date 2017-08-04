@@ -30,6 +30,12 @@ body {
 
 }
 
+.placeHolder{
+  width: 20%;
+  height: : 100px;
+
+}
+
 
 input[type="button"]{
   width: 120px
