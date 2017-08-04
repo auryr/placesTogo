@@ -16,9 +16,9 @@ Place.create = (places) => {
     const queries = legislators.map(function(placeArray){
       return t.one(`
         INSERT INTO places(description,detail,comment)
-        VALUES($1, $2)
+        VALUES($1, $2, $3)
         RETURNING *
-      `, [placeArray.description, placeArray.detail,placeArray.imageUrl,]);
+      `, [placeArray.description, placeArray.detail,placeArray.imageUrl]);
     });
     return t.batch(queries);
   });

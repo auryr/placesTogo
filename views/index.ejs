@@ -17,22 +17,28 @@
 		<% if (placesToGo){%>
 		<div class='container'>
 			    <div class='centerContainer'>
+					<% for (let i=0; i < placesToGo.length;i++) { %>
 					<form method="POST" action="getPlacesToGo/add">
-						<% for (let i=0; i < placesToGo.length;i++) { %>
-							<div class="placeHolder">
+						<div class="placeHolder">
 
-								<input type="text" name="description" class ="inputs"  value="<%= placesToGo[i].name %>" />
+							<input type="text" name="description" class ="inputs"  value="<%= placesToGo[i].name %>" />
 
-								<input type="text" name="address"     class ="inputs"  value="<%= placesToGo[i].formatted_address %>" />
+							<input type="text" name="address"     class ="inputs"  value="<%= placesToGo[i].formatted_address %>" />
 
-								<input type="checkbox" name="description" class ="inputs"   />
-								<label for="add"  >Add to my list</label>
-								<img src="<%= imagesUrl[i] %>"></img>
+							<input type="text" name="rating"     class ="inputsHidden"  value="<%= placesToGo[i].rating %>" />
 
-							</div>
-						<% } %>
-						<input id="submit"type='submit' value='Add Place'/>
+							<input type="text" name="placeId"     class ="inputsHidden"  value="<%= placesToGo[i].id %>" />
+
+							<img src="<%= imagesUrl[i] %>"></img>
+							<input type="text" name="imageUrl" class ="inputsHidden"  value=<%= imagesUrl[i] %>" />
+
+							<img src="<%= placesToGo[i].icon %>"></img>
+							<input type="text" name="icon" class ="inputsHidden"  value=<%= imagesUrl[i] %>" />
+
+						</div>
+						<input id="submit" type='submit' value='Add Place'/>
 					</form>
+						<% } %>
 				</div>
 			</div>
 

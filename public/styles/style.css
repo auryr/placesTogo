@@ -1,4 +1,17 @@
 
+textarea, input {
+    background: 0;
+    border: 0;
+    width: 100%;
+    overflow: visible;
+    outline: 0;
+    height: auto;
+}
+
+.inputsHidden{
+  visibility: hidden;
+}
+
 input[type="submit"],
 input[type="reset"],
 input[type="button"]{

@@ -13,7 +13,10 @@ module.exports = getPlacesToGoController;
 getPlacesToGoController.create = (req, res) => {
   console.log("Im here",req.body);
   Legislator.create({
-
+      description: req.body.description,
+      adress: req.body.adress,
+      imagesUrl: req.body.imagesUrl,
+      placeId: req.body.placeId,
     })
     .then(data => {
       console.log(data);
