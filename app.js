@@ -39,7 +39,8 @@ app.get("/", function(req,res){
   res.render("index",{
     message:'',
     currentPage:'',
-    subTitle:''
+    subTitle:'',
+    placesToGo:{}
   })
 })
 // const todoListRoutes = require('./routes/todoList-routes');

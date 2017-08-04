@@ -1,5 +1,12 @@
-<% include ./partials/boilerplate %>
-<% include ./partials/nav %>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Visit Us</title>
+</head>
+<body>
+    <script src="/src/jquery.js"></script>
+	<script src="/src/main.js"></script>
+	<% include ../views/partials/nav %>
 		<div class="container">
 	        <form  action='/getPlacesToGo' id="request">
 				<input name='country' type='text' placeholder='Country'/>
@@ -7,7 +14,29 @@
 	          	<button id="search" type="submit">...</button>
 	        </form>
 		</div>
-    <script src="../src/jquery.js"></script>
-    <script src="../src/main.js"></script>
-	<% include ./partials/pageFooter %>
-<% include ./partials/end %>
+		<% if (placesToGo){%>
+		<div class='container'>
+			    <div class='centerContainer'>
+					<form method="POST" action="getPlacesToGo/add">
+						<% for (let i=0; i < placesToGo.length;i++) { %>
+							<div class="placeHolder">
+
+								<input type="text" name="description" class ="inputs"  value="<%= placesToGo[i].name %>" />
+
+								<input type="text" name="address"     class ="inputs"  value="<%= placesToGo[i].formatted_address %>" />
+
+								<input type="checkbox" name="description" class ="inputs"   />
+								<label for="add"  >Add to my list</label>
+								<img src="<%= imagesUrl[i] %>"></img>
+
+							</div>
+						<% } %>
+						<input id="submit"type='submit' value='Add Place'/>
+					</form>
+				</div>
+			</div>
+
+		<% }%>
+
+	<% include ../views/partials/pageFooter %>
+<% include ../views/partials/end %>

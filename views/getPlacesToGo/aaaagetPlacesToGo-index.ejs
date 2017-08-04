@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Visit Us</title>
+</head>
+<body>
+    <script src="/src/jquery.js"></script>
+	<script src="/src/main.js"></script>
+	<% include ../partials/nav %>
+	<div class='container'>
+	    <div class='centerContainer' style="background-color:blue; ">
+			<form method="POST" action="getPlacesToGo/add">
+				<% for (let i=0; i < placesToGo.length;i++) { %>
+					<div class="placeHolder">
+						<h2 class ="description"><%= placesToGo[i].name %></h2>
+						<h3 class = "detail"><%= placesToGo[i].formatted_address %></h3>
+						<input class="add" type="checkbox">
+						<label for="add"  >Add to my list</label>
+						<img src="<%= imagesUrl[i] %>"></img>
+					</div>
+				<% } %>
+				<input id="submit"type='submit' value='Add Place'/>
+			</form>
+		</div>
+	</div>
+<% include ../partials/end %>

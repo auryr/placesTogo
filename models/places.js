@@ -9,8 +9,9 @@ Place.findById = function(id){
  return db.one(`SELECT * from places WHERE id = $1`, [id]);
 }
 
-PLegislator.create = (places) => {
-  console.log(places);
+Place.create = (places) => {
+  console.log("hey");
+
   return db.tx(t => {
     const queries = legislators.map(function(placeArray){
       return t.one(`
@@ -19,7 +20,6 @@ PLegislator.create = (places) => {
         RETURNING *
       `, [placeArray.description, placeArray.detail,placeArray.imageUrl,]);
     });
-    // this runs all the queries
     return t.batch(queries);
   });
 };

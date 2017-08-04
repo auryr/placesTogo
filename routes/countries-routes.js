@@ -6,10 +6,10 @@ const countriesController = require('../controllers/countries-controller');
 
 
 countryRoutes.get('/', countriesController.index);
-countryRoutes.post('/',authHelpers.loginRequired,countriesController.create);
+countryRoutes.post('getPlacesToGo/add',authHelpers.loginRequired,countriesController.create);
 
 countryRoutes.get('/add',authHelpers.loginRequired, (req, res) => {
-  res.render('countries/country-add', {
+  res.render('getPlacesToGo/add', {
     currentPage: 'add',
   });
 });

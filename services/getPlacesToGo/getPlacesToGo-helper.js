@@ -15,20 +15,25 @@ function getPlacesToGo(req, res, next) {
                 imagesArray.push(jsonRes.results[index].photos[0].photo_reference);
             }
             else{
-                console.log("photo doesnt exist");
                 imagesArray.push("./images/noImage.jpg")
             }
         }
 
         let  promiseArray = imagesArray.map(function(photo_reference){
-            return fetch(`https://maps.googleapis.com/maps/api/place/photo?maxwidth=4000&key=${process.env.google_API}&photoreference=${photo_reference}`)
-                    .then(function(images) {
-                        return images.url
-                     });
+            if (photo_reference!=="./images/noImage.jpg"){
+                return fetch(`https://maps.googleapis.com/maps/api/place/photo?maxwidth=600&key=${process.env.google_API}&photoreference=${photo_reference}`)
+                        .then(function(images) {
+                            return images.url
+                         });
+            }else{
+
+              return photo_reference
+            }
+
         });
 
-        Promise.all(promiseArray).then(function(responce){
-            res.locals.imagesUrl =responce;
+        Promise.all(promiseArray).then(function(response){
+            res.locals.imagesUrl =response;
             return next();
         });
 

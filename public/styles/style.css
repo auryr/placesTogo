@@ -33,6 +33,8 @@ body {
 .placeHolder{
   width: 20%;
   height: : 100px;
+  display: flex;
+  flex-direction: column;
 
 }
 
