@@ -1,48 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Visit Us</title>
+	<meta charset='UTF-8' />
+	<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+	<meta http-equiv='X-UA-Compatible' content='ie=edge' />
+	<link rel='stylesheet' type='text/css' href='../styles/reset.css'>
+	<link rel='stylesheet' type='text/css' href='../styles/style.css'>
+	<title>Let's travel</title>
 </head>
-<body>
-    <script src="/src/jquery.js"></script>
-	<script src="/src/main.js"></script>
+<body >
+    <script src="../src/jquery.js"></script>
+    <script src="../src/main.js"></script>
+	<div class="container">
 	<% include ../views/partials/nav %>
-		<div class="container">
-	        <form  action='/getPlacesToGo' id="request">
-				<input name='country' type='text' placeholder='Country'/>
-				<input name='city' type='text' placeholder='City'/>
-	          	<button id="search" type="submit">...</button>
+
+	<div class='centerContainer'>
+		<div >
+	        <form  action='/getPlacesToGo' id="request" >
+				<div>
+					<input name='country' type='text' class="input" placeholder='Country'/>
+					<input name='city' type='text'  class="input"  placeholder='City'/>
+					<input id="search" name="search" type='submit' value='Search'/>
+	        	</div>
 	        </form>
-		</div>
-		<% if (placesToGo){%>
-		<div class='container'>
+	     </div>
+	     <div style="width:100%";>
+			<% if (placesToGo){%>
 			    <div class='centerContainer'>
-					<% for (let i=0; i < placesToGo.length;i++) { %>
+				<% for (let i=0; i < placesToGo.length;i++) { %>
 					<form method="POST" action="getPlacesToGo/add">
-						<div class="placeHolder">
+						<div class="placeHolder" id="div${i}">
 
-							<input type="text" name="description" class ="inputs"  value="<%= placesToGo[i].name %>" />
+							<input type="text" name="description" class ="inputs info"  value="<%= placesToGo[i].name %>" />
 
-							<input type="text" name="address"     class ="inputs"  value="<%= placesToGo[i].formatted_address %>" />
+							<input type="text" name="address"     class ="inputs info"  value="<%= placesToGo[i].formatted_address %>" />
 
-							<input type="text" name="rating"     class ="inputsHidden"  value="<%= placesToGo[i].rating %>" />
+							<input type="text" name="rating"     class ="inputs info"  value="<%= placesToGo[i].rating %>" />
 
-							<input type="text" name="placeId"     class ="inputsHidden"  value="<%= placesToGo[i].id %>" />
+							<input type="text" name="placeId"     class ="inputsHidden info"  value="<%= placesToGo[i].id %>" />
 
-							<img src="<%= imagesUrl[i] %>"></img>
-							<input type="text" name="imageUrl" class ="inputsHidden"  value=<%= imagesUrl[i] %>" />
+							<img   class="image" src="<%= imagesUrl[i] %>"></img>
+							<input type="text" name="imageUrl" class ="inputsHidden info"  value="<%= imagesUrl[i] %>" />
 
-							<img src="<%= placesToGo[i].icon %>"></img>
-							<input type="text" name="icon" class ="inputsHidden"  value=<%= imagesUrl[i] %>" />
+							<img class="icon" src="<%= placesToGo[i].icon %>"></img>
+							<input type="text" name="iconUrl" class ="inputsHidden info"  value="<%= placesToGo[i].icon %>"/>
+							<% if (process.env.CURRENT_USER>0){%>
+								<input id="submit" type='submit' class="addPlace" value='Add Place'/>
+							<% } %>
 
 						</div>
-						<input id="submit" type='submit' value='Add Place'/>
 					</form>
-						<% } %>
+				<% } %>
 				</div>
-			</div>
 
-		<% }%>
-
+			<% }%>
+		</div>
+	</div>
 	<% include ../views/partials/pageFooter %>
 <% include ../views/partials/end %>

@@ -11,8 +11,8 @@ function loginRedirect(req, res, next) {
 }
 
 function loginRequired(req, res, next) {
-  //if (req.user === undefined) return res.redirect('/auth/login');
-  //res.redirect('/auth/login');
+  if (req.user === undefined) return res.redirect('/auth/login');
+  res.redirect('/');
   return next();
 }
 

@@ -1,5 +1,5 @@
 const getPlacesToGoController = {};
-const Legislator = require('../models/places');
+const places = require('../models/places');
 
 getPlacesToGoController.index = (req, res) => {
   res.render('./index', {
@@ -11,17 +11,18 @@ module.exports = getPlacesToGoController;
 
 
 getPlacesToGoController.create = (req, res) => {
-  console.log("Im here",req.body);
-  Legislator.create({
+  console.log(req.body.imagesUrl);
+  places.create({
       description: req.body.description,
-      adress: req.body.adress,
-      imagesUrl: req.body.imagesUrl,
+      address: req.body.address,
+      rating: req.body.rating,
       placeId: req.body.placeId,
-    })
-    .then(data => {
-      console.log(data);
-      res.json({data: data});
-    }).catch(err => {
+      imageUrl: req.body.imageUrl,
+      iconUrl: req.body.iconUrl,
+      user_id: process.env.CURRENT_USER,
+      })
+      .then(function(){})
+      .catch(err => {
       console.log(err);
       res.json({message: err});
     });

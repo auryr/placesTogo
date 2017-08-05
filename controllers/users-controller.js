@@ -6,11 +6,11 @@ const usersController = {};
 usersController.index = function(req, res) {
   console.log('userController');
   User.findUserTodoList(req.user.id)
-    .then(function(todolist){
-      res.render('todolist/todolist-index', {
+    .then(function(placesToGo){
+      res.render('placesToGo/placesToGo-index', {
         currentPage: 'index',
         message: 'ok',
-        data: todolist,
+        data: placesToGo,
       });
     }).catch(function(err){
       console.log(err);

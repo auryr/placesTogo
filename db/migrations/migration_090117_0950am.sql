@@ -25,9 +25,15 @@ CREATE TABLE IF NOT EXISTS cities (
 CREATE TABLE IF NOT EXISTS placesToGo (
   id SERIAL PRIMARY KEY,
   description VARCHAR(255)  NOT NULL,
-  detail TEXT  NOT NULL,
+  address VARCHAR(255)  NOT NULL,
+  placeId VARCHAR(255),
+  imageUrl TEXT   NULL,
+  iconUrl   TEXT   NULL,
+  plannedDate date,
+  visitDate   date,
+  rating   INTEGER,
   comment TEXT ,
-  state VARCHAR(1) NOT NULL,
+  state VARCHAR(1)  NULL,
   city_id INTEGER REFERENCES cities(id) NULL,
   user_id INTEGER REFERENCES users(id) NULL
 );

@@ -1,14 +1,14 @@
-const place = require('../models/places');
+const Places = require('../models/places');
 
 const placesController = {};
 
 placesController.index = function(req, res) {
-  place.findAll()
+  Places.findAll()
     .then(function(places){
-      res.render('places/place-index', {
+      res.render('places/places-index', {
         currentPage: 'index',
         message: 'ok',
-        data: places,
+        places: places,
       });
     }).catch(function(err){
       console.log(err);
@@ -17,9 +17,9 @@ placesController.index = function(req, res) {
 };
 
 placesController.show = function(req, res){
-  place.findById(req.params.id)
+  Places.findById(req.params.id)
     .then(function(place){
-      res.render('places/place-single', {
+      res.render('places/places-single', {
         currentPage: 'show',
         message: 'ok',
         data: place,
@@ -30,26 +30,9 @@ placesController.show = function(req, res){
     });
 };
 
-placesController.create = (req, res) => {
-  console.log(res.locals.description);
-  place.create({
-    description:res.locals.description,
-    detail:res.locals.detail,
-  })
-    .then(data => {
-      console.log(data);
-      res.json({data: data});
-    }).catch(err => {
-      console.log(err);
-      res.json({message: err});
-    });
-};
-
-
-module.exports = legController;
 
 placesController.update = function(req, res){
-  place.update({
+  Places.update({
     description:res.locals.description,
     detail:res.locals.detail,
   }, req.params.id).then(function(place){
@@ -61,9 +44,9 @@ placesController.update = function(req, res){
 };
 
 placesController.edit = function(req, res) {
-  place.findById(req.params.id)
+  Places.findById(req.params.id)
     .then(function(place){
-      res.render('places/place-edit', {
+      res.render('places/places-edit', {
         currentPage: 'edit',
         data: place,
       });
@@ -74,7 +57,7 @@ placesController.edit = function(req, res) {
 };
 
 placesController.delete = function(req, res) {
-  place.destroy(req.params.id)
+  Places.destroy(req.params.id)
     .then(function(){
       res.redirect('/places');
     }).catch(function(err){

@@ -2,22 +2,15 @@ const express = require('express');
 const placesRoutes = express.Router();
 const authHelpers = require('../services/auth/auth-helpers');
 
-const placeController = require('../controllers/place-controller');
+const placesController = require('../controllers/places-controller');
 
 
-placesRoutes.get('/',  placeController.index);
-placesRoutes.post('/', placeController.create);
+placesRoutes.get('/',  placesController.index);
 
-placesRoutes.get('/add', (req, res) => {
-  res.render('place/places-add', {
-    currentPage: 'add',
-  });
-});
-
-placesRoutes.get('/:id', placeController.show);
-placesRoutes.get('/:id/edit',  placeController.edit);
-placesRoutes.put('/:id',  placeController.update);
-placesRoutes.delete('/:id', placeController.delete);
+placesRoutes.get('/:id', placesController.show);
+placesRoutes.get('/:id/edit',  placesController.edit);
+placesRoutes.put('/:id',  placesController.update);
+placesRoutes.delete('/:id', placesController.delete);
 
 module.exports = placesRoutes;
 

@@ -43,10 +43,9 @@ app.get("/", function(req,res){
     placesToGo:{}
   })
 })
-// const todoListRoutes = require('./routes/todoList-routes');
-// app.use('/todoList', todoListRoutes);
-// const categoryRoutes = require('./routes/categories-routes');
-// app.use('/categories', categoryRoutes);
+
+const placesRoutes = require('./routes/places-routes');
+app.use('/places', placesRoutes);
 
 const authRoutes = require('./routes/auth-routes');
 app.use('/auth', authRoutes);

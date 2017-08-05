@@ -1,0 +1,27 @@
+	<% include ././../partials/boilerplate %>
+	<% include ././../partials/nav %>
+
+	<div class='centerContainer'>
+	     <div style="width:100%";>
+			<% if (places){%>
+			    <div class='centerContainer'>
+				<% for (let i=0; i < places.length;i++) { %>
+					<form method="POST" action="getplaces/add">
+						<div class="placeHolder" id="div${i}">
+
+							<h3 class="info"> <%= places[i].description %></h3>
+							<h3 class="info"> <%= places[i].address %> </h3>
+							<h3 class="info"> <%= places[i].rating %> </h3>
+							<img   class="image" src="<%= places[i].imageurl %>"></img>
+							<img   class="image" src="<%= places[i].iconurl %>"></img>
+
+						</div>
+					</form>
+				<% } %>
+				</div>
+
+			<% }%>
+		</div>
+	</div>
+	<% include ././../partials/pageFooter %>
+	<% include ././../partials/end %>
