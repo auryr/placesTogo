@@ -5,7 +5,7 @@ require('dotenv').config();
 function getPlacesToGo(req, res, next) {
     let country=(req.query.country).replace(" ","+");
     let city=(req.query.city).replace(" ","+");
-    fetch(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=${country}+${city}+point+of+interest&language=en&key=AIzaSyBMaACuJ9Fd9moYBUTwinEA_IcCHHNlLNg`)
+    fetch(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=${country}+${city}+point+of+interest&language=en&type=tourist&&rankby=prominence&key=AIzaSyBMaACuJ9Fd9moYBUTwinEA_IcCHHNlLNg`)
     .then(fetchRes => fetchRes.json())
     .then(jsonRes => {
         res.locals.getPlacesToGo = jsonRes.results;

@@ -14,52 +14,55 @@
 	<div class="container">
 	<% include ../views/partials/nav %>
 
-	<div class='centerContainer'>
-		<div >
-	        <form  action='/getPlacesToGo' id="request" >
-				<div>
-					<input name='country' type='text' class="input" placeholder='Country'/>
-					<input name='city' type='text'  class="input"  placeholder='City'/>
-					<input id="search" name="search" type='submit' value='Search'/>
-	        	</div>
-	        </form>
-	     </div>
-	     <div style="width:100%";>
-			<% if (placesToGo){%>
-			    <div class='centerContainer'>
-				<% for (let i=0; i < placesToGo.length;i++) { %>
-					<form method="POST" action="getPlacesToGo/add">
-						<div class="placeHolder" id="div${i}">
+		<div class='centerContainer'>
+			<div >
+		        <form  action='/getPlacesToGo' id="request" >
+					<div>
+						<input name='country' type='text' class="input" placeholder='Country'/>
+						<input name='city' type='text'  class="input"  placeholder='City'/>
+						<input id="search" name="search" type='submit' value='Search'/>
+		        	</div>
+		        </form>
+		     </div>
+		     <div style="width:100%";>
+				<% if (placesToGo){%>
+				    <div class='centerContainer'>
+					<% for (let i=0; i < placesToGo.length;i++) { %>
+						<form method="POST" action="getPlacesToGo/add">
+							<div class="placeHolder" id="div${i}">
 
-							<input type="text" name="description" class ="inputs info"  value="<%= placesToGo[i].name %>" />
+								<input type="text" name="description" class ="inputs info"  value="<%= placesToGo[i].name %>" />
 
-							<input type="text" name="address"     class ="inputs info"  value="<%= placesToGo[i].formatted_address %>" />
-							<div>
-								<label for="rating">Rating :</label>
-								<input type="text" name="rating"     class ="inputs info"  value="<%= placesToGo[i].rating %>" />
+								<input type="text" name="address"     class ="inputs info"  value="<%= placesToGo[i].formatted_address %>" />
+								<div>
+									<label for="rating">Rating :</label>
+									<input type="text" name="rating"     class ="inputs info"  value="<%= placesToGo[i].rating %>" />
+								</div>
+								<% if (process.env.CURRENT_USER>0){%>
+									<div>
+										<label for="planneddate">Planned Date :</label>
+										<input name='planneddate' type='date' placeholder="Planned date"  required/>
+									</div>
+								<% } %>
+								<input type="text" name="placeId"     class ="inputsHidden info"  value="<%= placesToGo[i].id %>" />
+
+								<img   class="image" src="<%= imagesUrl[i] %>"></img>
+								<input type="text" name="imageUrl" class ="inputsHidden info"  value="<%= imagesUrl[i] %>" />
+
+								<img class="icon" src="<%= placesToGo[i].icon %>"></img>
+								<input type="text" name="iconUrl" class ="inputsHidden info"  value="<%= placesToGo[i].icon %>"/>
+								<% if (process.env.CURRENT_USER>0){%>
+									<input id="submit" type='submit' class="addPlace"  value='Add Place'/>
+								<% } %>
+
 							</div>
-							<div>
-								<label for="planneddate">Planned Date :</label>
-								<input name='planneddate' type='date' placeholder="Planned date"  required/>
-							</div>
-							<input type="text" name="placeId"     class ="inputsHidden info"  value="<%= placesToGo[i].id %>" />
+						</form>
+					<% } %>
+					</div>
 
-							<img   class="image" src="<%= imagesUrl[i] %>"></img>
-							<input type="text" name="imageUrl" class ="inputsHidden info"  value="<%= imagesUrl[i] %>" />
-
-							<img class="icon" src="<%= placesToGo[i].icon %>"></img>
-							<input type="text" name="iconUrl" class ="inputsHidden info"  value="<%= placesToGo[i].icon %>"/>
-							<% if (process.env.CURRENT_USER>0){%>
-								<input id="submit" type='submit' class="addPlace"  value='Add Place'/>
-							<% } %>
-
-						</div>
-					</form>
-				<% } %>
-				</div>
-
-			<% }%>
+				<% }%>
+			</div>
 		</div>
+<% include ../views/partials/pageFooter %>
 	</div>
-	<% include ../views/partials/pageFooter %>
 <% include ../views/partials/end %>

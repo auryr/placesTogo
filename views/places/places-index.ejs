@@ -1,6 +1,7 @@
 	<% include ././../partials/boilerplate %>
-	<% include ././../partials/nav %>
 
+	<div class='container'>
+	<% include ././../partials/nav %>
 	<div class='centerContainer'>
 	     <div style="width:100%";>
 			<% if (places){%>
@@ -11,14 +12,17 @@
 							<h3 class="info"> <%= places[i].description %></h3>
 							<h3 class="info"> <%= places[i].address %> </h3>
 							<h3 class="info">Rating: <%= places[i].rating %> </h3>
+				            <h3 class="info"> Planned Date :<%= places[i].planneddatestr %> </h3>
+				            <h3 class="info"> Visit Date :<%= places[i].visitdatestr %> </h3>
+				            <p class="info"> Details :<%= places[i].detail %> </p>
 							<img   class="image" src="<%= places[i].imageurl %>"></img>
-							<img   class="icon" src="<%= places[i].iconurl %>"></img>
-							<div>
-				                  <button><a class='.aButton' href='/places/<%= places[i].id %>'>Details</a></button>
+							<img   class="icon"  src="<%= places[i].iconurl %>"></img>
+							<div class="buttonContainer">
+				                <button><a class='aButton' href='/places/<%= places[i].id %>'>Details</a></button>
 
-				                  <button><a class='.aButton' href='/places/<%= places[i].id %>/edit'>Edit</a></button>
+				                <button><a class='aButton' href='/places/<%= places[i].id %>/edit'>Edit</a></button>
 
-			                    <form method='POST' action='/places/<%= places[i].id %>?_method=DELETE'>
+			                    <form  style="flex:1;" method='POST' action='/places/<%= places[i].id %>?_method=DELETE'>
 			                      <input type='submit' value='Delete' />
 			                    </form>
 							</div>
@@ -31,4 +35,5 @@
 		</div>
 	</div>
 	<% include ././../partials/pageFooter %>
+	</div>
 	<% include ././../partials/end %>

@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS placesToGo (
   plannedDate date,
   visitDate   date,
   rating   INTEGER,
-  comment TEXT ,
+  detail TEXT ,
   state VARCHAR(1)  NULL,
   city_id INTEGER REFERENCES cities(id) NULL,
   user_id INTEGER REFERENCES users(id) NULL

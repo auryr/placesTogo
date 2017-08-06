@@ -32,9 +32,13 @@ placesController.show = function(req, res){
 
 
 placesController.update = function(req, res){
+  if (req.body.visiteddate==""){
+    req.body.visiteddate=null;
+  }
   Places.update({
-    description:res.locals.description,
-    detail:res.locals.detail,
+    planneddate:req.body.planneddate,
+    visiteddate:req.body.visiteddate,
+    detail:req.body.detail,
   }, req.params.id).then(function(place){
     res.redirect(`/places/${req.params.id}`);
   }).catch(function(err){

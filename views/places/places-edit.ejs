@@ -1,25 +1,41 @@
-<% include ../partials/boilerplate %>
-	<% include ../partials/nav %>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='UTF-8' />
+	<meta name='viewport' content='width=device-width, initial-scale=1.0' />
+	<meta http-equiv='X-UA-Compatible' content='ie=edge' />
+	<link rel='stylesheet' type='text/css' href='../../styles/reset.css'>
+	<link rel='stylesheet' type='text/css' href='../../styles/style.css'>
+	<title>Let's travel</title>
+</head>
+<body >
+    <script src="../src/jquery.js"></script>
+    <script src="../src/main.js"></script>
+
 	<div class='container'>
+		<%include ././../partials/nav %>
 		<div class='centerContainer'>
-			<h3 class="info"> <%= places.description %></h3>
-			<h3 class="info"> <%= places.address %> </h3>
-			<h3 class="info"> Rating :<%= places.rating %> </h3>
-			<img   class="image" src="<%= places.imageurl %>"></img>
-			<img   class="icon" src="<%= places.iconurl %>"></img>
-			<form method='POST' action='/places/<%= places.id %>?_method=PUT'>
-				<label for="date">Date </label>
-				<select>
-				  <option value="N">Visited</option>
-				  <option value="S">Not Visited yest</option>
-				</select>
-				<input name='pdate' type='date' placeholder="Planned date"  required/>
-				<input name='vdate' type='date' placeholder="Visited Date"  />
-				<label for="date">This is my expecience comment </label>
-				<textarea name="comment"></textarea>
-              <input type='submit' value='Delete' />
-			</form>
+			<div class="placeHolder">
+				<h3 class="info"> <%= places.description %></h3>
+				<h3 class="info"> <%= places.address %> </h3>
+				<h3 class="info"> Rating :<%= places.rating %> </h3>
+				<img   class="image" src="<%= places.imageurl %>"></img>
+				<img   class="icon" src="<%= places.iconurl %>"></img>
+				<form method='POST' action='/places/<%= places.id %>?_method=PUT'>
+					<label for="visited">Visited </label>
+					<input type="checkbox" name="visited" value="V">
+					<label for="planneddate">Planed Date </label>
+					<input name='planneddate' class="inputUpdate" type='date'  value ="<%= places.planneddatestr %>"  required/>
+					<label for="visiteddate">Visited Date </label>
+					<input name='visiteddate' class="inputUpdate" type='date' placeholder="Visited date" value ="<%= places.visitdatestr %>"  />
+					<label for="detail">Details </label>
+					<textarea class="inputUpdate" name="detail"> <%= places.detail %></textarea>
+					<button class=""><a class='aButton' href='/places/<%= places.id %>'>Cancel</a></button>
+					<input type='submit' value='Edit' />
+				</form>
+			</div>
 		</div>
+	  <% include ././../partials/pageFooter %>
 	</div>
 <% include ../partials/end %>
 

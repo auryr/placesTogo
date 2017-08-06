@@ -1,0 +1,5 @@
+create or replace function check_date(myDate varchar) returns date
+begin
+  perform myDate::date;
+  return (perform myDate::date)
+end;

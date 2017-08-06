@@ -1,3 +1,6 @@
+*{
+  font-family:  Georgia,  "Times New Roman",Serif;
+}
 
 textarea, input,label ,h3{
     background: 0;
@@ -8,6 +11,14 @@ textarea, input,label ,h3{
     font-size: 1.5em;
     color: yellow;
 }
+
+.inputUpdate{
+    background-color: white;
+    border: 1px solid silver;
+    color: black;
+    font-size: 1em;
+}
+
 button,a{
   color: black;
 }
@@ -17,6 +28,9 @@ label{
 }
 .buttonContainer{
   display: flex;
+  width: 600px;
+  margin: auto;
+
 }
 
 .icon{
@@ -45,6 +59,10 @@ form{
 .search{
   width: 20%;
 }
+button,
+input[type="reset"]{
+  display: inline-block;
+}
 
 button,
 input[type="reset"],
@@ -56,7 +74,7 @@ input[type=submit] {
     color: black;
     padding-top:  20px;
     margin: 8px 0;
-    border: none;
+    border: 2px solid silver;
     border-radius: 4px;
     cursor: pointer;
     width: 200px;
@@ -183,10 +201,9 @@ a{
   color: yellow;
 }
 
-.aButton {
+.aButton{
   color: black;
-  height:  inherit;
-  width: inherit;
+  width: 200px;
   font-family: Courrier;
 }
 
@@ -202,32 +219,28 @@ a{
   border: 1px solid #eee;
 }
 
-/*input[type=text],
-input[type=email],
-input[type=password],
-input[type=number],
-input[type=time],
-input[type=date]  {*/
 .input{
   border: 0;
   border-bottom: 3px solid #eee;
   font-size: 1.7em;
+  color: black;
   margin: 20px 0;
   padding: 5px;
   display: block;
   width: 100%;
   transition: 0.3s;
+  background-color: lightyellow;
 }
 button,
 input[type=submit]
   {
   display: block;
   margin: auto;
+  background-color: yellow;
   padding: 10px 30px;
   font-size: 1.5em;
   color: black;
   font-family: Courrier
-
   font-weight: 900;
   cursor: pointer;
   transition: 0.3s;
