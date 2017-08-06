@@ -9,16 +9,10 @@ CREATE TABLE IF NOT EXISTS users (
   lastname VARCHAR(255)
 );
 
-CREATE TABLE IF NOT EXISTS countries (
+CREATE TABLE IF NOT EXISTS comments (
   id SERIAL PRIMARY KEY,
-  name VARCHAR(255)  NOT NULL
-);
-
-
-CREATE TABLE IF NOT EXISTS cities (
-  id SERIAL PRIMARY KEY,
-  name VARCHAR(255)  NOT NULL,
-  country_id INTEGER REFERENCES countries(id)
+  comment text NOT NULL,
+  commentDate date;
 );
 
 

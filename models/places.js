@@ -26,8 +26,12 @@ Place.create = (placesArray) => {
 };
 
 
+
 Place.update = function(place, id){
 console.log(place);
+if (place.visiteddate==""){
+  (place.visiteddate=null
+}
 
  return db.none(`UPDATE placesToGo  set planneddate= $1,visitdate=$2 ,detail=$3 where id=$4`, [place.planneddate ,place.visiteddate ,place.detail,id]);
 }
