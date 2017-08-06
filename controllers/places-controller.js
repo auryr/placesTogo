@@ -22,7 +22,7 @@ placesController.show = function(req, res){
       res.render('places/places-single', {
         currentPage: 'show',
         message: 'ok',
-        data: place,
+        places: place,
       });
     }).catch(function(err){
       console.log(err);
@@ -47,8 +47,7 @@ placesController.edit = function(req, res) {
   Places.findById(req.params.id)
     .then(function(place){
       res.render('places/places-edit', {
-        currentPage: 'edit',
-        data: place,
+        places: place,
       });
     }).catch(function(err){
       console.log(err);

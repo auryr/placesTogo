@@ -1,40 +1,29 @@
-<% include ../partials/boilerplate %>
-  <% include ../partials/nav %>
+  <% include ././../partials/boilerplate %>
+  <% include ././../partials/nav %>
 
-  <div class='container'>
-    <div class='centerContainer'>
-      <table>
-        <thead>
-          <tr>
-            <th>Description</th>
-            <th>Detail</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>State</th>
-          </tr>
-        </thead>
-        <tbody>
-          <td><%= data.description %></td>
-          <td><%= data.detail %></td>
-          <td><%= data.tododatestr %></td>
-          <td><%= data.todotimestr %></td>
-          <td><%= data.category %></td>
-          <td><%= data.state %></td>
+  <div class='centerContainer'>
+      <div style="width:100%";>
+      <% if (places){%>
+          <div class='centerContainer'>
+            <div class="placeHolder" id="div${i}">
 
-          <td class='links'>
-            <a href='/todoList/<%= data.id %>/edit'>Edit</a>
-          </td>
-          <td>
-            <form method='POST' action='/todoList/<%= data.id %>?_method=DELETE'>
-              <input class='.myButton'  type='submit' value='Delete'/>
-            </form>
-          </td>
-        </tbody>
-      </table>
-    </div>
-    <div class='linkback'>
-      <a class='seeall' href='/todoList/'>See all todoList</a>
+              <h3 class="info"> <%= places.description %></h3>
+              <h3 class="info"> <%= places.address %> </h3>
+              <h3 class="info"> Rating :<%= places.rating %> </h3>
+              <img   class="image" src="<%= places.imageurl %>"></img>
+              <img   class="icon" src="<%= places.iconurl %>"></img>
+              <div class="buttonContainer">
+                  <button><a class='linkto' href='/places/<%= places.id %>/edit'>Edit</a></button>
+                  <form method='POST' action='/places/<%= places.id %>?_method=PUT'>
+                    <input type='submit' value='Edit' >
+                  </form>
+              </div>
+            </div>
+
+        </div>
+
+      <% }%>
     </div>
   </div>
-
-<% include ../partials/end %>
+  <% include ././../partials/pageFooter %>
+  <% include ././../partials/end %>

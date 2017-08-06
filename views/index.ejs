@@ -34,9 +34,14 @@
 							<input type="text" name="description" class ="inputs info"  value="<%= placesToGo[i].name %>" />
 
 							<input type="text" name="address"     class ="inputs info"  value="<%= placesToGo[i].formatted_address %>" />
-
-							<input type="text" name="rating"     class ="inputs info"  value="<%= placesToGo[i].rating %>" />
-
+							<div>
+								<label for="rating">Rating :</label>
+								<input type="text" name="rating"     class ="inputs info"  value="<%= placesToGo[i].rating %>" />
+							</div>
+							<div>
+								<label for="planneddate">Planned Date :</label>
+								<input name='planneddate' type='date' placeholder="Planned date"  required/>
+							</div>
 							<input type="text" name="placeId"     class ="inputsHidden info"  value="<%= placesToGo[i].id %>" />
 
 							<img   class="image" src="<%= imagesUrl[i] %>"></img>
@@ -45,7 +50,7 @@
 							<img class="icon" src="<%= placesToGo[i].icon %>"></img>
 							<input type="text" name="iconUrl" class ="inputsHidden info"  value="<%= placesToGo[i].icon %>"/>
 							<% if (process.env.CURRENT_USER>0){%>
-								<input id="submit" type='submit' class="addPlace" value='Add Place'/>
+								<input id="submit" type='submit' class="addPlace"  value='Add Place'/>
 							<% } %>
 
 						</div>

@@ -11,14 +11,14 @@ module.exports = getPlacesToGoController;
 
 
 getPlacesToGoController.create = (req, res) => {
-  console.log(req.body.imagesUrl);
   places.create({
       description: req.body.description,
       address: req.body.address,
-      rating: req.body.rating,
+      rating: ("0"+req.body.rating),
       placeId: req.body.placeId,
       imageUrl: req.body.imageUrl,
       iconUrl: req.body.iconUrl,
+      planneddate: req.body.planneddate,
       user_id: process.env.CURRENT_USER,
       })
       .then(function(){})

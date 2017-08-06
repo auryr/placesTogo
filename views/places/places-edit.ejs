@@ -2,13 +2,25 @@
 	<% include ../partials/nav %>
 	<div class='container'>
 		<div class='centerContainer'>
-			<form method='POST' action='/todolist/<%= data.id %>?_method=PUT'>
-			  <input name='description' type='text' value='<%= data.description %>' />
-			  <textarea name='detail' id='detail' ><%= data.detail %></textarea>
-			  <input name='todoDate' type='date' value='<%= data.tododatestr %>' />
-			  <input name='todoTime' type='time' value='<%= data.todotimestr %>' />
-			  <input class='.myButton' type='submit' value='Edit' />
+			<h3 class="info"> <%= places.description %></h3>
+			<h3 class="info"> <%= places.address %> </h3>
+			<h3 class="info"> Rating :<%= places.rating %> </h3>
+			<img   class="image" src="<%= places.imageurl %>"></img>
+			<img   class="icon" src="<%= places.iconurl %>"></img>
+			<form method='POST' action='/places/<%= places.id %>?_method=PUT'>
+				<label for="date">Date </label>
+				<select>
+				  <option value="N">Visited</option>
+				  <option value="S">Not Visited yest</option>
+				</select>
+				<input name='pdate' type='date' placeholder="Planned date"  required/>
+				<input name='vdate' type='date' placeholder="Visited Date"  />
+				<label for="date">This is my expecience comment </label>
+				<textarea name="comment"></textarea>
+              <input type='submit' value='Delete' />
 			</form>
 		</div>
 	</div>
 <% include ../partials/end %>
+
+

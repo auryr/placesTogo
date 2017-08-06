@@ -1,13 +1,23 @@
 
-textarea, input {
+textarea, input,label ,h3{
     background: 0;
     border: 0;
     overflow: visible;
     outline: 0;
     height: auto;
     font-size: 1.5em;
+    color: yellow;
+}
+button,a{
+  color: black;
 }
 
+label{
+  text-align: right;
+}
+.buttonContainer{
+  display: flex;
+}
 
 .icon{
   width:5%;
@@ -21,12 +31,13 @@ textarea, input {
 
 form{
   width: 100%;
+  display: inline-block;
 }
 .inputsHidden{
   visibility: hidden;
 }
 
-.info{
+.info,label,h3{
   color: yellow;
   text-align: center;
 }
@@ -35,24 +46,32 @@ form{
   width: 20%;
 }
 
+button,
 input[type="reset"],
 input[type="button"],
 input[type=submit] {
     background-color: yellow;
-    color: white;
+    color: black;
+    font-size: 1.5em;
+    color: black;
     padding-top:  20px;
     margin: 8px 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    width: 200px;
+    text-align: center;
 
 }
 
 
+button:hover,
 input[type="reset"]:hover ,
 input[type="button"]:hover ,
 input[type=submit]:hover {
     background-color: #146eb4;
+    box-shadow: 0px 26px 26px  0px rgba(0,0,0,0.4);
+    transform: translateY(-5px);
     color: white;
 }
 
@@ -75,12 +94,6 @@ body {
   flex-direction: column;
   background-color:  rgba(0,0,0,0.8 );
   border: white 1px  double;
-
-}
-
-.myButton:hover{
-  box-shadow: 0px 26px 26px  0px rgba(0,0,0,0.4);
-  transform: translateY(-5px);
 
 }
 
@@ -165,11 +178,21 @@ h2 {
   padding: 5px;
 }
 
-a {
-  color: yellow;
+a{
   text-decoration: none;
+  color: yellow;
 }
 
+.aButton {
+  color: black;
+  height:  inherit;
+  width: inherit;
+  font-family: Courrier;
+}
+
+.aButton:hover{
+  color: white;
+}
 
 .add , .edit{
   box-sizing: border-box;
@@ -195,7 +218,7 @@ input[type=date]  {*/
   width: 100%;
   transition: 0.3s;
 }
-
+button,
 input[type=submit]
   {
   display: block;
@@ -203,62 +226,15 @@ input[type=submit]
   padding: 10px 30px;
   font-size: 1.5em;
   color: black;
+  font-family: Courrier
+
   font-weight: 900;
   cursor: pointer;
   transition: 0.3s;
 }
 
-/*input[type=password]:hover,
-input[type=email]:hover,
-input[type=submit]:hover,
-input[type=text]:hover,
-input[type=number]:hover,
-input[type=time]:hover,
-input[type=date]:hover {*/
-.input{
-  outline: 0;
-  background-color: lightyellow ;
-}
 
-table {
-    font-family: georgia;
-    font-size: 14px;
-    border-collapse: collapse;
-    width: 100%;
-    background-color: rgba(255,255,153,0.5);:
-}
 
-td, th {
-    border: 1px solid silver;
-    text-align: left;
-    height: 30px;
-    padding: 8px;
-}
-
-th {
-    background-color:lightblue;
-    color: black;
-    font-weight: bold;
-}
-
-td,tr{
-  width: 100px;
-  word-wrap: break-word;
-}
-
-/*change the color of each row depending if its odd or even*/
-tr:nth-child(odd) {
-    background-color: silver;
-    color: blue;
-    font-size: 1.5em;
-    width: 100px;
-}
-tr:nth-child(even) {
-    background-color: lightblue;
-    color: black;
-    font-size: 1.5em;
-    width: 100px;
-}
 /* ========== menu ==============B  */
 
   .lSocialM{

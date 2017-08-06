@@ -6,17 +6,24 @@
 			<% if (places){%>
 			    <div class='centerContainer'>
 				<% for (let i=0; i < places.length;i++) { %>
-					<form method="POST" action="getplaces/add">
 						<div class="placeHolder" id="div${i}">
 
 							<h3 class="info"> <%= places[i].description %></h3>
 							<h3 class="info"> <%= places[i].address %> </h3>
-							<h3 class="info"> <%= places[i].rating %> </h3>
+							<h3 class="info">Rating: <%= places[i].rating %> </h3>
 							<img   class="image" src="<%= places[i].imageurl %>"></img>
-							<img   class="image" src="<%= places[i].iconurl %>"></img>
+							<img   class="icon" src="<%= places[i].iconurl %>"></img>
+							<div>
+				                  <button><a class='.aButton' href='/places/<%= places[i].id %>'>Details</a></button>
 
+				                  <button><a class='.aButton' href='/places/<%= places[i].id %>/edit'>Edit</a></button>
+
+			                    <form method='POST' action='/places/<%= places[i].id %>?_method=DELETE'>
+			                      <input type='submit' value='Delete' />
+			                    </form>
+							</div>
 						</div>
-					</form>
+
 				<% } %>
 				</div>
 
