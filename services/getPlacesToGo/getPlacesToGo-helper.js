@@ -20,7 +20,6 @@ function getPlacesToGo(req, res, next) {
         }
 
         let  promiseArray = imagesArray.map(function(photo_reference,index){
-            // console.log(photo_reference);
             if (photo_reference!=="./images/noImage.jpg"){
                 return fetch(`https://maps.googleapis.com/maps/api/place/photo?maxwidth=600&key=${process.env.google_API}&photoreference=${photo_reference}`)
                         .then(function(images) {
