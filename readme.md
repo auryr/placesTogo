@@ -17,3 +17,16 @@
 
 
 ## The technologies, APIs, and modules <h2>
+	*HTML
+	*JavaScript
+	*Css
+	*express
+	*morgan
+	*path
+	*body-parser
+	*method-override
+	*cookie-parser
+	*express-session
+	*passport
+
+

@@ -48,9 +48,9 @@
 								<% if (process.env.CURRENT_USER>0){%>
 									<div>
 										<label for="planneddate">Planned Date :</label>
-										<input name='planneddate' type='date' placeholder="Planned date"  />
+										<input name='planneddate' id="<%= 'date_'+i %>"  type='date' placeholder="Planned date" required />
 									</div>
-									<input id="<%= 'but_'+i %>"  type='submit' class="addPlace" hideDiv="<%= 'div_'+i %>" value='Add Place'/>
+									<input id="<%= 'but_'+i %>"  type='submit' class="addPlace" hideDiv="<%= 'div_'+i %>" valDate="<%= 'date_'+i %>"  value='Add Place'/>
 								<% } %>
 
 							</div>

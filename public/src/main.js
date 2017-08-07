@@ -2,8 +2,17 @@ console.log('main.js is connected');
 
 function hideElements(e) {
   const divToHide = e.target.getAttribute("hideDiv");
+  const dateToVal = e.target.getAttribute("valDate");
   let hiddenDiv=document.getElementById(divToHide);
-  hiddenDiv.style.display = "none";
+
+
+  let dateEl=document.getElementById(dateToVal);
+  if (dateEl.value==""){
+  }
+  else{
+    hiddenDiv.style.display = "none";
+  }
+  console.log(dateEl.value);
 }
 
 function addClick() {
