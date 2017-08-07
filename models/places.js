@@ -2,7 +2,7 @@ const db = require("../db/config");
 const Place = {};
 
 Place.findAll = function(user_id) {
-    return db.query(`SELECT *,to_char(planneddate,'yyyy-MM-dd') as planneddatestr, to_char(visitdate,'yyyy-MM-dd') as visitdatestr FROM placesToGo WHERE user_id=1`,[user_id]);
+    return db.query(`SELECT *,to_char(planneddate,'yyyy-MM-dd') as planneddatestr, to_char(visitdate,'yyyy-MM-dd') as visitdatestr FROM placesToGo WHERE user_id=$1`,[process.env.CURRENT_USER]);
 }
 
 Place.findById = function(id){

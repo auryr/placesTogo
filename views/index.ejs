@@ -29,7 +29,7 @@
 				    <div class='centerContainer'>
 					<% for (let i=0; i < placesToGo.length;i++) { %>
 						<form method="POST" action="getPlacesToGo/add">
-							<div class="placeHolder" id="div${i}">
+							<div class="placeHolder" id="<%= 'div_'+i %>">
 
 								<input type="text" name="description" class ="inputs info"  value="<%= placesToGo[i].name %>" />
 
@@ -38,12 +38,6 @@
 									<label for="rating">Rating :</label>
 									<input type="text" name="rating"     class ="inputs info"  value="<%= placesToGo[i].rating %>" />
 								</div>
-								<% if (process.env.CURRENT_USER>0){%>
-									<div>
-										<label for="planneddate">Planned Date :</label>
-										<input name='planneddate' type='date' placeholder="Planned date"  required/>
-									</div>
-								<% } %>
 								<input type="text" name="placeId"     class ="inputsHidden info"  value="<%= placesToGo[i].id %>" />
 
 								<img   class="image" src="<%= imagesUrl[i] %>"></img>
@@ -52,7 +46,11 @@
 								<img class="icon" src="<%= placesToGo[i].icon %>"></img>
 								<input type="text" name="iconUrl" class ="inputsHidden info"  value="<%= placesToGo[i].icon %>"/>
 								<% if (process.env.CURRENT_USER>0){%>
-									<input id="submit" type='submit' class="addPlace"  value='Add Place'/>
+									<div>
+										<label for="planneddate">Planned Date :</label>
+										<input name='planneddate' type='date' placeholder="Planned date"  />
+									</div>
+									<input id="<%= 'but_'+i %>"  type='submit' class="addPlace" hideDiv="<%= 'div_'+i %>" value='Add Place'/>
 								<% } %>
 
 							</div>

@@ -25,7 +25,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-
+process.env.CURRENT_USER=-1;
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 

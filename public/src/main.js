@@ -1,24 +1,21 @@
-// console.log('main.js is connected');
+console.log('main.js is connected');
 
-// function hideElement(e) {
-//   const todoId = e.target.dataset.id;
-//   fetch(`/todos/${todoId}/complete`, {
-//     method: 'PUT',
-//     credentials: 'include',
-//   }).then(res => res.json())
-//     .then(jsonRes => {
-//       e.target.innerHTML = 'Done!';
-//       e.target.classList = 'done';
-//       e.target.removeEventListener('click', handler);
-//       console.log(jsonRes);
-//     })
-// }
+function hideElements(e) {
+  const divToHide = e.target.getAttribute("hideDiv");
+  let hiddenDiv=document.getElementById(divToHide);
+  hiddenDiv.style.display = "none";
+}
 
-// function hideElement() {
-//   const todos = document.getElementByClass('placeHolder');
-//   todos.forEach(todo => {
-//       todo.addEventListener('click', handler = (e) => completeTodo(e));
-//   })
-// }
+function addClick() {
+  const buttons = document.querySelectorAll('.addPlace');
+  buttons.forEach(button => {
+      button.addEventListener('click', handler = function(e) {
+        hideElements(e);
+      });
 
-// document.addEventListener('DOMContentLoaded', hideElement);
+  })
+}
+
+document.addEventListener('DOMContentLoaded',function(){
+    addClick()
+});

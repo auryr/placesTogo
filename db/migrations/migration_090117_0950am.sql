@@ -9,13 +9,6 @@ CREATE TABLE IF NOT EXISTS users (
   lastname VARCHAR(255)
 );
 
-CREATE TABLE IF NOT EXISTS comments (
-  id SERIAL PRIMARY KEY,
-  comment text NOT NULL,
-  commentDate date,
-  placesToGo_id  INTEGER REFERENCES placesToGo(id) NULL
-);
-
 
 CREATE TABLE IF NOT EXISTS placesToGo (
   id SERIAL PRIMARY KEY,
@@ -32,3 +25,10 @@ CREATE TABLE IF NOT EXISTS placesToGo (
   user_id INTEGER REFERENCES users(id) NULL
 );
 
+
+CREATE TABLE IF NOT EXISTS comments (
+  id SERIAL PRIMARY KEY,
+  comment text NOT NULL,
+  commentDate date,
+  placesToGo_id  INTEGER REFERENCES placesToGo(id) NULL
+);

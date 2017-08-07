@@ -1,21 +1,11 @@
+
+
 # Aury Rodriguez 07/12/2017<h1> 
 ## My project: Places to go. <h2> 
+### An app where user can check the places to visit around the world<h3>
 
-## It's an app where an user can have a list of the places that  would like to visit. The user only has to specify  the contry and the city and it would list the places , the user should . <h2> 
-##The User can select the places , from that list, that he/she would like to go.
-
-* You'll have 
-- User .
-    id, userName, password, email, firstName, lastName
-
-- Country
-    id, countryName, langua, currency, details, 
-- Places
-    id, userId, countryId, status, review
-
-
-
-
+## User Stories <h2>
+### The user would specify a country and / or a city , and it will retrieve information about places (hotels, buidings,monuments, etc.). If the user log in he/she would be able to create its own list of places, add information, and plan a trip. <h3> 
 
 
 ## Wireframe
@@ -25,3 +15,5 @@
 ![Wire frame](./scr/wf2.jpg)
 ![Wire frame](./scr/wf3.jpg)
 
+
+## The technologies, APIs, and modules <h2>
