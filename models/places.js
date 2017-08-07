@@ -6,13 +6,13 @@ Place.findAll = function(user_id) {
 }
 
 Place.findById = function(id){
-    return db.one(`SELECT *,to_char(planneddate,'yyyy-MM-dd') as planneddatestr, to_char(visitdate,'yyyy-MM-dd') as visitdatestr from placesToGo WHERE id = $1`, [id]);
+   return db.one(`SELECT *,to_char(planneddate,'yyyy-MM-dd') as planneddatestr, to_char(visitdate,'yyyy-MM-dd') as visitdatestr from placesToGo WHERE id = $1`, [id]);
+
 }
 
 
 Place.create = (placesArray) => {
-    console.log(placesArray);
-    return db.none(`
+     return db.none(`
     DO
     $do$
     BEGIN
@@ -25,12 +25,16 @@ Place.create = (placesArray) => {
 
 };
 
+Place.createComments= function(comment){
+    return db.none(`
+      INSERT INTO comments(comment,commentDate, placesToGo_id) VALUES($1, to_date(now(), 'yyyy-MM-dd'), $2);
+ `, [ comment.comment, comment.placeToGo_Id ]);
 
+}
 
 Place.update = function(place, id){
-console.log(place);
 if (place.visiteddate==""){
-  (place.visiteddate=null
+    place.visiteddate=null
 }
 
  return db.none(`UPDATE placesToGo  set planneddate= $1,visitdate=$2 ,detail=$3 where id=$4`, [place.planneddate ,place.visiteddate ,place.detail,id]);

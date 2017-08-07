@@ -69,4 +69,17 @@ placesController.delete = function(req, res) {
     });
 };
 
+placesController.createComments = function(req, res) {
+  console.log(req.body, res.params);
+  Places.createComments ({
+        comments: req.body.comments,
+        placesToGo_id:req.params.id,
+      })
+      .catch(err => {
+      console.log(err);
+      res.json({message: err});
+    });
+};
+
+
 module.exports = placesController;

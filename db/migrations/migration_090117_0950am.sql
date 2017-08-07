@@ -12,7 +12,8 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS comments (
   id SERIAL PRIMARY KEY,
   comment text NOT NULL,
-  commentDate date;
+  commentDate date,
+  placesToGo_id  INTEGER REFERENCES placesToGo(id) NULL
 );
 
 
@@ -28,7 +29,6 @@ CREATE TABLE IF NOT EXISTS placesToGo (
   rating   INTEGER,
   detail TEXT ,
   state VARCHAR(1)  NULL,
-  city_id INTEGER REFERENCES cities(id) NULL,
   user_id INTEGER REFERENCES users(id) NULL
 );
 

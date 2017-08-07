@@ -12,5 +12,8 @@ placesRoutes.get('/:id/edit',  placesController.edit);
 placesRoutes.put('/:id',  placesController.update);
 placesRoutes.delete('/:id', placesController.delete);
 
+placesRoutes.get('/:id/edit/comments',  placesController.createComments);
+
+
 module.exports = placesRoutes;
 
